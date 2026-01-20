@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePlay - Live Code Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">{"</>"}</div>
+                <h1>CodePlay - Live Code Editor</h1>
+            </div>
+            <div class="header-controls">
+                <button class="btn btn-primary" id="runBtn">
+                    <span>▶️</span> Run Code
+                </button>
+                <button class="btn btn-secondary" id="saveBtn">
+                    <span>💾</span> Save
+                </button>
+                <button class="btn btn-success" id="shareBtn">
+                    <span>🔗</span> Share
+                </button>
+                <button class="btn btn-danger" id="resetBtn">
+                    <span>🔄</span> Reset
+                </button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="editor-panel">
+                <div class="tabs">
+                    <div class="tab active" data-tab="html">
+                        HTML
+                        <span class="tab-badge hidden" id="html-badge"></span>
+                    </div>
+                    <div class="tab" data-tab="css">
+                        CSS
+                        <span class="tab-badge hidden" id="css-badge"></span>
+                    </div>
+                    <div class="tab" data-tab="js">
+                        JavaScript
+                        <span class="tab-badge hidden" id="js-badge"></span>
+                    </div>
+                </div>
+                <div class="panel-header">
+                    <div class="panel-title" id="currentFile">
+                        <span>📄</span> index.html
+                    </div>
+                    <div class="panel-controls">
+                        <select class="theme-selector" id="themeSelector">
+                            <option value="monokai">Dark Theme</option>
+                            <option value="default">White Theme</option>
+                        </select>
+                        <select class="font-size-selector" id="fontSizeSelector">
+                            <option value="12">12px</option>
+                            <option value="14" selected>14px</option>
+                            <option value="16">16px</option>
+                            <option value="18">18px</option>
+                            <option value="20">20px</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="editor-container">
+                    <textarea id="htmlEditor"></textarea>
+                    <textarea id="cssEditor"></textarea>
+                    <textarea id="jsEditor"></textarea>
+                </div>
+            </div>
+
+            <div class="resize-handle" id="resizeHandle">
+                <!-- Resize handle visual indicator -->
+            </div>
+
+            <div class="preview-panel">
+                <div class="panel-header">
+                    <div class="panel-title">
+                        <span>👁️</span> Console Output
+                    </div>
+                    <div class="panel-controls">
+                        <button class="btn btn-secondary" id="clearConsoleBtn">
+                            <span>🗑️</span> Clear Console
+                        </button>
+                    </div>
+                </div>
+                <iframe class="preview-container" id="previewFrame" title="Code Preview"></iframe>
+                <div class="console">
+                    <div class="console-header">
+                        <div class="console-title"></div>
+                        <div class="console-stats">
+                            <span id="consoleErrorCount" class="text-error hidden">0 errors</span>
+                            <span id="consoleWarningCount" class="text-warning hidden">0 warnings</span>
+                        </div>
+                    </div>
+                    <div class="console-content" id="consoleContent">
+                        <!-- Console messages will appear here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-info">
+                <div class="status-item">
+                    <span>📁</span>
+                    <span id="currentFileName">index.html</span>
+                </div>
+                <div class="status-item">
+                    <span>📏</span>
+                    <span id="lineCount">Line 1, Column 1</span>
+                </div>
+                <div class="status-item">
+                    <span>💾</span>
+                    <span id="saveStatus">All changes saved</span>
+                </div>
+            </div>
+            <div id="status">Ready - CodePlay Live Editor v2.0</div>
+        </div>
+
+        <!-- Share Modal -->
+        <div class="modal-overlay" id="shareModal">
+            <div class="share-modal">
+                <div class="modal-header">
+                    <div class="modal-title">Share Your Code</div>
+                    <button class="close-modal" id="closeModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="share-url-container">
+                        <input type="text" class="share-url" id="shareUrl" readonly>
+                        <button class="copy-url-btn" id="copyUrlBtn">Copy</button>
+                    </div>
+                    <div class="share-platforms">
+
+                        <div class="share-btn twitter" data-platform="twitter">
+                            <div class="share-icon"><i class="fab fa-twitter"></i></div>
+                            <div class="share-label">Twitter</div>
+                        </div>
+                        <div class="share-btn linkedin" data-platform="linkedin">
+                            <div class="share-icon"><i class="fab fa-linkedin-in"></i></div>
+                            <div class="share-label">LinkedIn</div>
+                        </div>
+                        <div class="share-btn email" data-platform="email">
+                            <div class="share-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="share-label">Email</div>
+                        </div>
+                        <div class="share-btn github" data-platform="github">
+                            <div class="share-icon"><i class="fab fa-github"></i></div>
+                            <div class="share-label">GitHub</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- External Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/solarized.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/night.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/addon/edit/closetag.min.js"></script>
+    
+     <!-- Main Application Script  -->
+    <script src="script.js"></script></body>
+</html>
