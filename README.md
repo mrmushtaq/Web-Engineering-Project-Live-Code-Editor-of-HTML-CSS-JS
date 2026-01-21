@@ -43,6 +43,8 @@ CodePlay provides an interactive coding environment where users can:
 
 ## How to Run the Project
 
-1. Clone the repository:
-```bash
-[https://github.com/mrmushtaq/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS.git](https://mrmushtaq.github.io/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS/)
+## 🌐 Live Demo
+You can view and use the live version of this project here:
+
+👉 [Live Code Editor (HTML, CSS & JS)](https://mrmushtaq.github.io/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS/)
+
