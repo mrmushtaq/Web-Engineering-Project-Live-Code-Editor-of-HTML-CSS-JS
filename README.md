@@ -45,4 +45,4 @@ CodePlay provides an interactive coding environment where users can:
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/mrmushtaq/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS.git
+https://github.com/mrmushtaq/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS.git
