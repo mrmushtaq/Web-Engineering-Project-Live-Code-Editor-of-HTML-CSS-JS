@@ -46,8 +46,7 @@ CodePlay provides an interactive coding environment where users can:
 ## 🌐 Live Demo
 You can view and use the live version of this project here:
 
-<a href="https://mrmushtaq.github.io/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS/" target="_blank">
-🔗 Live Code Editor (HTML, CSS & JS)
-</a>
+🔗 [Live Code Editor (HTML, CSS & JS)](https://mrmushtaq.github.io/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS/)
+
 
 
