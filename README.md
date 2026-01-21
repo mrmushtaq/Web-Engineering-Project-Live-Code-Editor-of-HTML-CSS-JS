@@ -1,0 +1,96 @@
+\# CodePlay – Live Code Editor 🚀
+
+
+
+\## Web Engineering Final Project
+
+
+
+CodePlay is a web-based Live Code Editor that allows users to write and preview HTML, CSS, and JavaScript code in real time.  
+
+This project is developed as part of the Web Engineering (Semester V) Final Project.
+
+
+
+---
+
+
+
+\## Project Overview
+
+
+
+CodePlay provides an interactive coding environment where users can:
+
+\- Write HTML, CSS, and JavaScript code
+
+\- Instantly see the output
+
+\- Experiment with front-end development concepts easily
+
+
+
+---
+
+
+
+\## Technologies Used
+
+\- HTML5
+
+\- CSS3
+
+\- JavaScript
+
+
+
+---
+
+
+
+\## Features
+
+\- Separate editors for HTML, CSS, and JavaScript
+
+\- Real-time live preview
+
+\- Dark theme interface
+
+\- Run Code button
+
+\- Save and Reset options
+
+\- Console output panel
+
+\- Responsive design
+
+
+
+---
+
+
+
+\## Output / Screenshot
+
+
+
+!\[Live Code Editor](screenshots/home.png)
+
+
+
+---
+
+
+
+\## How to Run the Project
+
+
+
+1\. Clone the repository:
+
+```bash
+
+git clone https://github.com/mrmushtaq/Web-Engineering-Project-Live-Code-Editor-of-HTML-CSS-JS.git
+
+
+
